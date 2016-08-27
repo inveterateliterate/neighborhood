@@ -4,6 +4,11 @@ class User < ApplicationRecord
 	validates_uniqueness_of :email, :username
 	has_secure_password
 
+	has_many :restaurants, through: :listings
+	has_many :listings, dependent: :destroy
+	has_many :cards
+
+
 	def self.authenticate(email, password)
 		@user = User.find_by_email(email)
 		 if !@user.nil?

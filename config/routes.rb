@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :cards
   resources :users, except: [:index]
   
   get '/signup' => "users#new", as: :signup

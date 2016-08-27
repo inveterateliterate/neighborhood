@@ -10,10 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827192049) do
+ActiveRecord::Schema.define(version: 20160827214251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.integer  "area_id"
+    t.string   "area_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "category_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "restaurants_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["restaurants_id"], name: "index_listings_on_restaurants_id", using: :btree
+    t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.string   "website"
+    t.integer  "category_id_id"
+    t.integer  "area_id_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["area_id_id"], name: "index_restaurants_on_area_id_id", using: :btree
+    t.index ["category_id_id"], name: "index_restaurants_on_category_id_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -25,4 +68,5 @@ ActiveRecord::Schema.define(version: 20160827192049) do
     t.string   "password_digest"
   end
 
+  add_foreign_key "cards", "users"
 end
