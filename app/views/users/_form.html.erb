@@ -11,36 +11,63 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class ="row form-row">
+      <div class="col-xs-2 f-label">
     <%= f.label :first_name %>
+    </div>
+      <div class="col-xs-2 f-field">
     <%= f.text_field :first_name %>
   </div>
+</div>
 
-  <div class="field">
+  <div class ="row form-row">
+      <div class="col-xs-2 f-label">
     <%= f.label :last_name %>
+    </div>
+      <div class="col-xs-2 f-field">
     <%= f.text_field :last_name %>
   </div>
+</div>
 
-  <div class="field">
+  <div class ="row form-row">
+      <div class="col-xs-2 f-label">
     <%= f.label :email %>
+    </div>
+      <div class="col-xs-2 f-field">
     <%= f.text_field :email %>
   </div>
+</div>
 
-  <div class="field">
+  <div class ="row form-row">
+      <div class="col-xs-2 f-label">
     <%= f.label :username %>
+    </div>
+      <div class="col-xs-2 f-field">
     <%= f.text_field :username %>
   </div>
+</div>
 
-  <div class="field">
+  <div class ="row form-row">
+      <div class="col-xs-2 f-label">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    </div>
+      <div class="col-xs-2 f-field">
+    <%= f.password_field :password %>
   </div>
+</div>
 
-  <div class="actions">
+  <div class ="row form-row">
+    <div class="col-xs-2 col-xs-offset-2">
     <%= f.submit %>
   </div>
-<% end %>
+  </div>
 
-<% if !logged_in? %>
+  <div class ="row form-row">
+  <% if !logged_in? %>
+     <div class="col-xs-2 col-xs-offset-2">
     <%= link_to "Login", login_path %>
+  </div>
   <%end%>
+  </div>
+
+<% end %>

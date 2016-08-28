@@ -4,4 +4,8 @@ class Restaurant < ApplicationRecord
 	has_many :listings
 	has_many :users, through: :listings
 
+
+	geocoded_by :address
+	after_validation :geocode
+
 end

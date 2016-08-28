@@ -1,5 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="header">
+<h1>NEIGHBORHOOD</h1>
+</div>
 
+
+<div class="main">
+<div class="container">
+
+<h2>Profile</h2>
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -25,5 +32,7 @@
   <%= @user.password %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_by_name_path(username: @user.username) %>
+
+</div>
+</div>

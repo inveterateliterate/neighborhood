@@ -1,5 +1,13 @@
 <div class="header">
-	<h1>Log In</h1>
+<h1>NEIGHBORHOOD</h1>
+</div>
+
+
+
+
+<div class="main">
+	<div class="container">
+	<h2>Log In</h2>
 
 <%= form_tag "/login" do %>
 <div class="form-group">
@@ -18,13 +26,13 @@
 			<label for="password">Password</label>
 		</div>
 		<div class="col-xs-2">
-			<%= text_field_tag :password %>
+			<%= password_field_tag :password %>
 		</div>
 	</div>
 
 <div class ="row form-row">
     <div class="col-xs-2 col-xs-offset-1">
-		<%= submit_tag "Submit" %>
+		<%= submit_tag "Log In" %>
 	</div>
 	</div>
 	<div class ="row form-row">
@@ -40,3 +48,6 @@
 <% if @error.present? %>
 <p class='error'><%= "#{@error}" %></p>
 <%end%>
+
+</div>
+</div>

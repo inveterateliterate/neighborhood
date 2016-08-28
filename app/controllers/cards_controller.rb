@@ -1,15 +1,17 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :show, :edit, :update, :destroy]
 
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards = current_user.cards
   end
 
   # GET /cards/1
   # GET /cards/1.json
   def show
+    @card = Card.find(params[:id])
+    @restaurants = @card.restaurants
   end
 
   # GET /cards/new
@@ -19,6 +21,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
+    @card = Card.find(params[:id])
   end
 
   # POST /cards

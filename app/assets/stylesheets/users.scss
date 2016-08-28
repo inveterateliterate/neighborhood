@@ -1,3 +1,26 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  font-family: 'Baloo Paaji', cursive;
+  font-size: 60px;
+  color: #C8C8C8;
+}
+
+.form-row {
+	padding-bottom: 12px;
+}
+
+.header {
+	text-align: center;
+	padding: 30px 0;
+}
+
+.main {
+	margin-left: 35%;
+}
+
+h2 {
+	padding-bottom: 12px;
+}

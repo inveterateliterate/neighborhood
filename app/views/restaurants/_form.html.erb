@@ -1,0 +1,67 @@
+<%= form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% @estaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class = form_group>
+  <div class ="row form-row">
+      <div class="col-xs-2 f-label">
+    <%= f.label :name %>
+    </div>
+      <div class="col-xs-2 f-field">
+    <%= f.text_field :name %>
+  </div>
+</div>
+<div class ="row form-row">
+      <div class="col-xs-2 f-label">
+    <%= f.label :website %>
+    </div>
+      <div class="col-xs-2 f-field">
+    <%= f.text_field :website %>
+  </div>
+</div>
+<%= f.hidden_field :latitude %>
+<%= f.hidden_field :longitude %>
+  <div class ="row form-row">
+      <div class="col-xs-2 f-label">
+    <%= f.label :address %>
+    </div>
+      <div class="col-xs-2 f-field">
+    <%= f.text_field :address %>
+  </div>
+</div>
+
+<div class ="row form-row">
+      <div class="col-xs-2 f-label">
+    <%= f.label :category %>
+    </div>
+      <div class="col-xs-2 f-field">
+ <%= f.collection_select(:category_id, Category.all, :id, :category_name) %>
+ </div>
+ </div>
+
+ <div class ="row form-row">
+      <div class="col-xs-2 f-label">
+    <%= f.label :area %>
+    </div>
+      <div class="col-xs-2 f-field">
+ <%= f.collection_select(:area_id, Area.all, :id, :area_name) %>
+ </div>
+ </div>
+
+  <div class ="row form-row">
+    <div class="col-xs-2 col-xs-offset-2">
+    <%= f.submit %>
+  </div>
+  </div>
+</div>
+
+<% end %>
